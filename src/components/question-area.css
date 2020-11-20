@@ -1,0 +1,10 @@
+.quest{
+    margin-top: 50px;
+    display: flex;
+    
+    justify-content: center;
+    font-size: x-large;
+}
+.lab{
+    font-size: 36px;
+}
