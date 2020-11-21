@@ -1,71 +1,82 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
 
 import QuestionArea from './components/question-area';
 import AnswerArea from './components/answer-area';
 import OptionsArea from './components/options-area';
 import Results from './components/results'
 import data from './data';
+import reducer from './reducer';
 
 import './main-con.css'
 
-class App extends Component{
-    state = {
-        i: 0,
-        tarAn: ' ',
-        qCount: 0
-    }
-    takeAnswer = (e)=> {
-        let followingAnswer = e.target.getAttribute('name');
-        this.setState({tarAn: followingAnswer});
 
+const store = createStore(reducer);
+
+const App = () =>{
+
+
+    const takeAnswer = (e)=> {
+        let payload = e.target.getAttribute('name');
+        store.dispatch({type: 'TARGET', payload})
         
     }
-    takeButton = () =>{
-        
-        if(this.state.tarAn === ' '){
-            console.log('nothing');
+
+    const takeButton = () =>{
+
+        let {tarAn, i} = store.getState(); 
+        if(tarAn === ' '){
+            document.querySelector('#root').classList.add("dn");
+            setTimeout(()=>{
+                document.querySelector('#root').classList.remove("dn");
+            }, 500);
         } else {
-            if(this.state.tarAn === data[this.state.i].trueAnswer){
-                this.setState({qCount: this.state.qCount + 1});
-                this.setState({i: this.state.i + 1});
-                this.setState({tarAn: ' '});
-                console.log(this.state);
+            if(tarAn === data[i].trueAnswer){
+                console.log('TOOOK!');
+                store.dispatch({type: 'QPLUS'});
+                store.dispatch({type: 'WASH'});
+                store.dispatch({type: 'NEXTBTN'});
             } else {
-                this.setState({i: this.state.i + 1});
-                this.setState({tarAn: ' '});
-                console.log(this.state);
+                store.dispatch({type: 'WASH'});
+                store.dispatch({type: 'NEXTBTN'});
+                
             }
-            
         }
+
     }
 
-    takeRetake = () =>{
-        this.setState({
-            i: 0,
-            tarAn: ' ',
-            qCount: 0
-        });
+    const takeRetake = () =>{
+        store.dispatch({type: 'WASHALL'});
+        console.log(store.getState());
     }
 
-    render(){
-        let {i} = this.state; 
-    
-        if(this.state.i === 9){
+   
+
+    let {i , qCount} = store.getState();
+
+    if(i === 10){
             return(
-                <Results res={this.state.qCount} onRetake={this.takeRetake}/>    
+                <Results res={qCount} onRetake={takeRetake}/>    
+        );
+    }
+    return(
+        <div className='main-con'>
+            <QuestionArea qu={data[i].question}/>
+            <AnswerArea answers={data[i] } onAnswer={takeAnswer}/>
+            <OptionsArea onBtn={takeButton} onRetake={takeRetake}/>
+        </div>
             );
-        }
-        
-        return(
             
-            <div className='main-con'>
-                <QuestionArea qu={data[i].question}/>
-                <AnswerArea answers={data[i] } onAnswer={this.takeAnswer}/>
-                <OptionsArea onBtn={this.takeButton} onRetake={this.takeRetake}/>
-            </div>
-                );
-            }
 };
 
-ReactDOM.render(<App /> , document.querySelector('#root'));
+const update = () =>{
+    ReactDOM.render(<App /> , document.querySelector('#root'));
+}
+
+update();
+store.subscribe(update);
+
+
+
+
