@@ -19,7 +19,7 @@ const App = () =>{
 
     const takeAnswer = (e)=> {
         let payload = e.target.getAttribute('name');
-        store.dispatch({type: 'TARGET', payload})
+        store.dispatch({type: 'TARGET', payload});
         
     }
 
@@ -55,7 +55,7 @@ const App = () =>{
 
     let {i , qCount} = store.getState();
 
-    if(i === 10){
+    if(i === 12){
             return(
                 <Results res={qCount} onRetake={takeRetake}/>    
         );
@@ -76,6 +76,7 @@ const update = () =>{
 
 update();
 store.subscribe(update);
+
 
 
 

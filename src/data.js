@@ -87,7 +87,54 @@ const data = [
         variable3: "Число узлов в DOM дереве",
         variable4: "Число элементов в массиве",
         trueAnswer: "variable4",
+    },
+    {
+        id: "11",
+        question: "Самый быстрый способ преобразовать строчку в число?",
+        variable1: "Оператор '+' ",
+        variable2: "Функция Number()",
+        variable3: "Функция ToNumber()",
+        variable4: "Такого способа не существует",
+        trueAnswer: "variable1",
+    },
+    {
+        id: "12",
+        question: "Как можно создать объект?",
+        variable1: "let obj = {} ",
+        variable2: "let obj = new Object()",
+        variable3: "let obj = Object.create(null)",
+        variable4: "Все перечисленные методы",
+        trueAnswer: "variable4",
+    },
+    {
+        id: "13",
+        question: "Как правильно объявить стрелочную функцию?",
+        variable1: "const func() => {}",
+        variable2: "const func => {}",
+        variable3: "const func = () => {}",
+        variable4: "const func ==> {}",
+        trueAnswer: "variable3"
+    },
+    {
+        id: "14",
+        question: "Что выведет console.log(!!null)?",
+        variable1: "true",
+        variable2: "false",
+        variable3: "null",
+        variable4: "undefined",
+        trueAnswer: "variable2"
+    },
+    {
+        id: "15",
+        question: "Какой метод проверяет принадлежит ли указанное свойство к объекту или нет?",
+        variable1: "instanceof",
+        variable2: "typeof",
+        variable3: "hasOwnProperty",
+        variable4: "valueOf",
+        trueAnswer: "variable3"
     }
+
+    
 
 ];
 
