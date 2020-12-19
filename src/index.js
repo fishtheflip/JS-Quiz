@@ -55,7 +55,7 @@ const App = () =>{
 
     let {i , qCount} = store.getState();
 
-    if(i === 12){
+    if(i === 20){
             return(
                 <Results res={qCount} onRetake={takeRetake}/>    
         );
@@ -76,6 +76,7 @@ const update = () =>{
 
 update();
 store.subscribe(update);
+
 
 
 

@@ -132,7 +132,56 @@ const data = [
         variable3: "hasOwnProperty",
         variable4: "valueOf",
         trueAnswer: "variable3"
-    }
+    },
+    {
+        id: "16",
+        question: "Что выведит console.log(0.1 + 0.2 === 0.3)",
+        variable1: "true",
+        variable2: "false",
+        variable3: "undefined",
+        variable4: "NaN",
+        trueAnswer: "variable2"
+    },
+    {
+        id: "17",
+        question: "Что означает термин hoisting?",
+        variable1: "Оптимизация переменной или функции в глобальную или функциональную области видимости",
+        variable2: "Удаление переменной или функции в глобальную или функциональную области видимости",
+        variable3: "Скрытие переменной или функции в глобальную или функциональную области видимости",
+        variable4: "Подъем переменной или функции в глобальную или функциональную области видимости",
+        trueAnswer: "variable4"
+    },
+    {
+        id: "18",
+        question: "Какие значение являются ложными?",
+        variable1: "0",
+        variable2: "false",
+        variable3: "undefined",
+        variable4: "Все ответы",
+        trueAnswer: "variable4"
+    },
+    {
+        id: "19",
+        question: "Что такое промисы (Promises)?",
+        variable1: "Это один из способов объявления функций в JS",
+        variable2: "Это одна из парадигм в JS",
+        variable3: "Это один из приемов работы с асинхронным кодом в JS",
+        variable4: "Это один из способоы объявления переменных в JS",
+        trueAnswer: "variable3"
+    },
+    {
+        id: "20",
+        question: "Что означает операор '%' ?",
+        variable1: "Процент от числа",
+        variable2: "Остаток от деления",
+        variable3: "Возведение в степень",
+        variable4: "Возведение в куб",
+        trueAnswer: "variable2"
+    },
+
+
+
+    
 
     
 
